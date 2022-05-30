@@ -2,7 +2,8 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-nativ
 import { useState } from 'react';
 
 const App = () =>{
-
+  const [number, onChangeNumber] = useState(null)
+  
   const [count, setCont] = useState(0)
   const onPress= ()=>
   setCont(prevCont => prevCont + 1)
@@ -12,11 +13,16 @@ const App = () =>{
       <View style={styles.countContainer}>
       <Text>Count: {count}</Text>
       </View>
-      <TextInput keyboardType='numeric' style={styles.input}/>
+      <TextInput 
+      keyboardType='numeric' 
+      style={styles.input}
+      onChangeText={onChangeNumber}
+
+      />
     
     <TouchableOpacity 
-    style={styles.button}
-    onPress={onPress}
+      style={styles.button}
+      onPress={onPress}
     >
       <Text>Pressione</Text>
     </TouchableOpacity>
